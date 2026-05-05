@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Flota de Camiones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="admin-header">
+        <div class="title-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; padding: 0 20px;">
+            <div>
+                <h1>PANEL DE CONTROL</h1>
+                <h2>Gestión de Flota Logística</h2>
+            </div>
+            <a href="index.html" class="btn-admin-link">Ver Dashboard</a>
+        </div>
+    </header>
+
+    <main class="admin-container">
+        <!-- Formulario de Registro -->
+        <section class="admin-panel">
+            <h2>Registrar Camión</h2>
+            <form id="add-flight-form" class="admin-form">
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora Solicitada</label>
+                    <input type="time" id="hora" required>
+                </div>
+                <div class="form-group">
+                    <label for="placa">Placa del Camión</label>
+                    <input type="text" id="placa" placeholder="Ej: ABC-1234" required>
+                </div>
+                <div class="form-group">
+                    <label for="chofer">Nombre del Chofer</label>
+                    <input type="text" id="chofer" placeholder="Ej: Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label for="origen">Origen</label>
+                    <input type="text" id="origen" placeholder="Ej: Bodega Central" required>
+                </div>
+                <div class="form-group">
+                    <label for="destino">Destino</label>
+                    <input type="text" id="destino" placeholder="Ej: Sucursal Norte" required>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado Inicial</label>
+                    <select id="estado">
+                        <option value="CARGANDO">CARGANDO</option>
+                        <option value="EN CAMINO">EN CAMINO</option>
+                        <option value="FINALIZADO">FINALIZADO</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Registrar Viaje</button>
+            </form>
+        </section>
+
+        <!-- Lista -->
+        <section class="admin-panel">
+            <div class="admin-header-actions">
+                <h2>Viajes de Hoy</h2>
+                <button id="btn-delete-all" class="btn-delete-all">Borrar Registros del Día</button>
+            </div>
+            <div class="admin-table-container admin-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Placa</th>
+                            <th>Chofer</th>
+                            <th>Ruta</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-table-body">
+                        <!-- Carga desde Firebase -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
